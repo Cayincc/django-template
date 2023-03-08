@@ -27,7 +27,7 @@ ENV DJANGO_ENV=${DJANGO_ENV} \
   # tini:
   TINI_VERSION=v0.19.0 \
   # poetry:
-  POETRY_VERSION=1.3.2 \
+  POETRY_VERSION=1.4.0 \
   POETRY_NO_INTERACTION=1 \
   POETRY_VIRTUALENVS_CREATE=false \
   POETRY_CACHE_DIR='/var/cache/pypoetry' \
@@ -87,16 +87,17 @@ RUN --mount=type=cache,target="$POETRY_CACHE_DIR" \
     --no-interaction --no-ansi
 
 # This is a special case. We need to run this script as an entry point:
-COPY ./docker/django/entrypoint.sh /docker-entrypoint.sh
+#COPY ./docker/django/entrypoint.sh /docker-entrypoint.sh
 
 # Setting up proper permissions:
-RUN chmod +x '/docker-entrypoint.sh'
+#RUN chmod +x '/docker-entrypoint.sh'
 
 # Running as non-root user:
 USER web
 
 # We customize how our app is loaded with the custom entrypoint:
-ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
+#ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
+ENTRYPOINT ["tini", "--"]
 
 
 # The following stage is only for production:
