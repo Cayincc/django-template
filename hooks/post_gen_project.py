@@ -84,7 +84,7 @@ def _database_config(config_path):
 # by both django and postgres docker image.
 # Cannot be renamed if you use postgres in docker.
 # See: https://hub.docker.com/_/postgres
-    """
+"""
 
     db_config = f"""# === Mysql ===
 MYSQL_DB={PROJECT_NAME}
@@ -172,9 +172,9 @@ DJANGO_DATABASE_PORT={db_port}
         # Write the results to the file:
         # config_file.seek(0)
         # config_file.write(file_contents)
-        config_file.writelines(common)
-        config_file.writelines(db_config)
-        config_file.writelines(db_config2)
+        config_file.write(common)
+        config_file.write(db_config)
+        config_file.write(db_config2)
         config_file.truncate()
 
     common_settings_config = os.path.join(
