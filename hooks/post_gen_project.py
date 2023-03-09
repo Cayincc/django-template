@@ -124,7 +124,9 @@ MYSQL_PASSWORD={PROJECT_NAME}
         },
     },
 }"""
-    db_pyproject_config = """# PostgreSQL Adapter https://pypi.org/project/psycopg2-binary/
+    db_pyproject_config = """# === DATABASE ===
+
+# PostgreSQL Adapter https://pypi.org/project/psycopg2-binary/
 #psycopg2-binary = "^2.9"
 # MySQL Driver https://pypi.org/project/mysql-connector-python/
 mysql-connector-python = "^8.0.32"
@@ -168,7 +170,9 @@ POSTGRES_PASSWORD={PROJECT_NAME}
     #     },
     # },
 }"""
-        db_pyproject_config = """# PostgreSQL Adapter https://pypi.org/project/psycopg2-binary/
+        db_pyproject_config = """# === DATABASE ===
+
+# PostgreSQL Adapter https://pypi.org/project/psycopg2-binary/
 psycopg2-binary = "^2.9"
 # MySQL Driver https://pypi.org/project/mysql-connector-python/
 #mysql-connector-python = "^8.0.32"
