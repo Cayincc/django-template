@@ -124,6 +124,11 @@ MYSQL_PASSWORD={PROJECT_NAME}
         },
     },
 }"""
+    db_pyproject_config = """# PostgreSQL Adapter https://pypi.org/project/psycopg2-binary/
+#psycopg2-binary = "^2.9"
+# MySQL Driver https://pypi.org/project/mysql-connector-python/
+mysql-connector-python = "^8.0.32"
+"""
     if DATABASE_NAME == 'postgresql':
         db_config = f"""
 # === Postgres ===
@@ -163,6 +168,11 @@ POSTGRES_PASSWORD={PROJECT_NAME}
     #     },
     # },
 }"""
+        db_pyproject_config = """# PostgreSQL Adapter https://pypi.org/project/psycopg2-binary/
+psycopg2-binary = "^2.9"
+# MySQL Driver https://pypi.org/project/mysql-connector-python/
+#mysql-connector-python = "^8.0.32"
+"""
 
     db_config2 = f"""
 # Used only by django:
@@ -190,6 +200,17 @@ DJANGO_DATABASE_PORT={db_port}
     with open(common_settings_config, 'r+') as common_settings_config_file:
         file_contents = common_settings_config_file.read()\
             .replace('\'__DATABASES_CONFIG__\'', db_common_settings_config, 1)
+        common_settings_config_file.seek(0)
+        common_settings_config_file.write(file_contents)
+        common_settings_config_file.truncate()
+
+    pyproject_config = os.path.join(
+        PROJECT_DIRECTORY,
+        'pyproject.toml'
+    )
+    with open(pyproject_config, 'r+') as pyproject_config_file:
+        file_contents = pyproject_config_file.read() \
+            .replace('# __DATABASE__', db_pyproject_config, 1)
         common_settings_config_file.seek(0)
         common_settings_config_file.write(file_contents)
         common_settings_config_file.truncate()

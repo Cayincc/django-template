@@ -22,12 +22,8 @@ django-stubs-ext = "^0.7"
 # Redis Extension https://pypi.org/project/hiredis/
 hiredis = "^2.2.2"
 
-# === DATABASE ===
-# PostgreSQL Adapter https://pypi.org/project/psycopg2-binary/
-#psycopg2-binary = "^2.9"
-# https://pypi.org/project/python-decouple/
-# MySQL Driver https://pypi.org/project/mysql-connector-python/
-mysql-connector-python = "^8.0.32"
+# __DATABASE__
+
 # Vector Database
 weaviate-client = "^3.13.0"
 
