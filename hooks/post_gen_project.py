@@ -167,7 +167,7 @@ DJANGO_DATABASE_HOST=localhost
 DJANGO_DATABASE_PORT={db_port}
 """
 
-    with open(config_path, 'r+') as config_file:
+    with open(config_path, 'a+') as config_file:
         # file_contents = config_file.read().replace('__DATABASE_PORT__', db_port, 1)
         # Write the results to the file:
         # config_file.seek(0)
