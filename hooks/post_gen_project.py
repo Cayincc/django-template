@@ -211,9 +211,9 @@ DJANGO_DATABASE_PORT={db_port}
     with open(pyproject_config, 'r+') as pyproject_config_file:
         file_contents = pyproject_config_file.read() \
             .replace('# __DATABASE__', db_pyproject_config, 1)
-        common_settings_config_file.seek(0)
-        common_settings_config_file.write(file_contents)
-        common_settings_config_file.truncate()
+        pyproject_config_file.seek(0)
+        pyproject_config_file.write(file_contents)
+        pyproject_config_file.truncate()
 
 
 def print_futher_instuctions():
