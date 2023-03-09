@@ -86,7 +86,8 @@ def _database_config(config_path):
 # See: https://hub.docker.com/_/postgres
 """
 
-    db_config = f"""# === Mysql ===
+    db_config = f"""
+# === Mysql ===
 MYSQL_DB={PROJECT_NAME}
 MYSQL_USER={PROJECT_NAME}
 MYSQL_PASSWORD={PROJECT_NAME}
@@ -124,7 +125,8 @@ MYSQL_PASSWORD={PROJECT_NAME}
     },
 }"""
     if DATABASE_NAME == 'postgresql':
-        db_config = f"""# === Postgres ===
+        db_config = f"""
+# === Postgres ===
 POSTGRES_DB={PROJECT_NAME}
 POSTGRES_USER={PROJECT_NAME}
 POSTGRES_PASSWORD={PROJECT_NAME}
@@ -162,7 +164,8 @@ POSTGRES_PASSWORD={PROJECT_NAME}
     # },
 }"""
 
-    db_config2 = f"""# Used only by django:
+    db_config2 = f"""
+# Used only by django:
 DJANGO_DATABASE_HOST=localhost
 DJANGO_DATABASE_PORT={db_port}
 """
