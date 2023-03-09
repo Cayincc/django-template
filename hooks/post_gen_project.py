@@ -130,10 +130,6 @@ POSTGRES_USER={PROJECT_NAME}
 POSTGRES_PASSWORD={PROJECT_NAME}
 """
         db_port = '5432'
-        db_config2 = f"""# Used only by django:
-DJANGO_DATABASE_HOST=localhost
-DJANGO_DATABASE_PORT={db_port}
-"""
         db_common_settings_config = """{
     # PostgresSql
     'default': {
@@ -165,6 +161,11 @@ DJANGO_DATABASE_PORT={db_port}
     #     },
     # },
 }"""
+
+    db_config2 = f"""# Used only by django:
+DJANGO_DATABASE_HOST=localhost
+DJANGO_DATABASE_PORT={db_port}
+"""
 
     with open(config_path, 'r+') as config_file:
         # file_contents = config_file.read().replace('__DATABASE_PORT__', db_port, 1)
