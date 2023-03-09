@@ -18,7 +18,34 @@ django-http-referrer-policy = "^1.1"
 django-permissions-policy = "^4.14"
 django-stubs-ext = "^0.7"
 
+# === Cache ===
+# Redis Extension https://pypi.org/project/hiredis/
+hiredis = "^2.2.2"
+
+# === DATABASE ===
+# PostgreSQL Adapter https://pypi.org/project/psycopg2-binary/
+#psycopg2-binary = "^2.9"
+# https://pypi.org/project/python-decouple/
+# MySQL Driver https://pypi.org/project/mysql-connector-python/
+mysql-connector-python = "^8.0.32"
+# Vector Database
+weaviate-client = "^3.13.0"
+
+# ASGI Server https://pypi.org/project/daphne/
+daphne = "^4.0.0"
+channels = "^4.0.0"
+# Redis Channels https://pypi.org/project/channels-redis/
+channels-redis = "^4.0.0"
+# core https://pypi.org/project/langchain/
+langchain = "^0.0.105"
+
+# === LLM ===
+openai = "^0.27.1"
+
+# === Tool ===
+# https://pypi.org/project/python-decouple/
 python-decouple = "^3.7"
+# https://pypi.org/project/structlog/
 structlog = "^22.3"
 
 

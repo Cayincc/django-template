@@ -3,6 +3,7 @@
   "project_verbose_name": "Test Project",
   "project_domain": "myapp.com",
   "organization": "wemake.services",
+  "database": "mysql",
 
   "_extensions": ["jinja2_git.GitExtension"],
   "_copy_without_render": [

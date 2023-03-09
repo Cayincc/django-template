@@ -7,6 +7,8 @@ MODULE_NAME = '{{ cookiecutter.project_name }}'
 
 DOMAIN_NAME = '{{ cookiecutter.project_domain }}'
 
+DATABASE_NAME = '{{ cookiecutter.database }}'
+
 
 def validate_project_name():
     """
@@ -64,9 +66,17 @@ def validate_domain():
         )
 
 
+def validate_database():
+    if DATABASE_NAME not in ['mysql', 'postgresql']:
+        raise ValueError(
+            'ERROR: `database` should be mysql or postgresql',
+        )
+
+
 validators = (
     validate_project_name,
     validate_domain,
+    validate_database
 )
 
 for validator in validators:

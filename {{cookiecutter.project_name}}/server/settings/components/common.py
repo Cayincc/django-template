@@ -22,6 +22,9 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # Application definition:
 
 INSTALLED_APPS: Tuple[str, ...] = (
+    # make sure daphne is at the top of your INSTALLED_APPS
+    'daphne',
+
     # Your apps go here:
     'server.apps.main',
 
@@ -82,21 +85,7 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB'),
-        'USER': config('POSTGRES_USER'),
-        'PASSWORD': config('POSTGRES_PASSWORD'),
-        'HOST': config('DJANGO_DATABASE_HOST'),
-        'PORT': config('DJANGO_DATABASE_PORT', cast=int),
-        'CONN_MAX_AGE': config('CONN_MAX_AGE', cast=int, default=60),
-        'OPTIONS': {
-            'connect_timeout': 10,
-            'options': '-c statement_timeout=15000ms',
-        },
-    },
-}
+DATABASES = '__DATABASES_CONFIG__'
 
 
 # Internationalization
@@ -207,3 +196,6 @@ EMAIL_TIMEOUT = 5
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+# Daphne AGSI
+ASGI_APPLICATION = "server.asgi.application"
